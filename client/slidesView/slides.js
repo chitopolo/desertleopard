@@ -16,8 +16,15 @@ Template.slides.helpers({
 
 Template.slides.events({
   'click .qrCodeShow': function(evt, template) {
-    $("#qrcode").qrcode({width: 400,height: 400, render: 'table', text: "http://10.6.17.255:3000/sessions/" + Session.get('currentSlideDeck')});
+    if( $('#qrcode').is(':empty') ) {
+      $("#qrcode").qrcode({width: 500,height: 500, render: 'table', text: "http://10.6.17.255:3000/sessions/" + Session.get('currentSlideDeck')});
+    }
+  },
+
+  'click .questions': function(evt, template) {
+    Router.go('/poll');
   }
+
 });
 
 
