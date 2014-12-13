@@ -22,7 +22,7 @@ Template.slides.events({
   },
 
   'click .questions': function(evt, template) {
-    Router.go('/poll');
+    Router.go('/questions/' + Session.get('currentSlideDeck'));
   }
 
 });

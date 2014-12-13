@@ -23,7 +23,7 @@ var uiBodyEvents = Tracker.autorun(function() {
           if(err) { console.log(err); }
 
           slide = Meteor.moveRight();
-
+          setLiveMarkdown(slide);
           $('.slide').addClass('animated bounceInRight');
           Meteor.setTimeout(function() {
             $('.slide').removeClass('animated bounceInRight');
@@ -42,7 +42,7 @@ var uiBodyEvents = Tracker.autorun(function() {
           if(err) { console.log(err); }
 
           slide = Meteor.moveLeft();
-
+          setLiveMarkdown(slide);
           $('.slide').addClass('animated bounceInLeft');
           Meteor.setTimeout(function() {
             $('.slide').removeClass('animated bounceInLeft');
@@ -60,7 +60,7 @@ var uiBodyEvents = Tracker.autorun(function() {
           if(err) { console.log(err); }
 
           slide = Meteor.moveDown();
-          
+          setLiveMarkdown(slide);          
           $('.slide').addClass('animated bounceInUp');
           Meteor.setTimeout(function() {
             $('.slide').removeClass('animated bounceInUp');
@@ -78,7 +78,7 @@ var uiBodyEvents = Tracker.autorun(function() {
           if(err) { console.log(err); }
 
           slide = Meteor.moveUp();
-          
+          setLiveMarkdown(slide);          
           $('.slide').addClass('animated bounceInDown');
           Meteor.setTimeout(function() {
             $('.slide').removeClass('animated bounceInDown');
@@ -135,7 +135,7 @@ Template.createPresentation.events({
 
     // Saving Current Slide
     saveSlide(Session.get('rowPosition'), Session.get('colPosition'), markDownText);
-
+    setLiveMarkdown(evt.target.value);
     Meteor.call('insertSlideColumns', {'columnTitle': 'TEST', 'slides': [''], 'lastIndex': 0}, function(err, data) {
       if(err) {  console.log(err); }
       columnId = data;
@@ -160,7 +160,6 @@ Template.createPresentation.events({
 
     // Updates current slide at current coordinates
     saveSlide(Session.get('rowPosition'), Session.get('colPosition'), markDownText);
-
     // Increments rowPosition
     Session.set('rowPosition', (Session.get('rowPosition') + 1));
 
@@ -170,6 +169,7 @@ Template.createPresentation.events({
     // Increments lastIndex position
     Meteor.updateLastIndex(Session.get('rowPosition'), Session.get('colPosition'));
 
+    setLiveMarkdown(evt.target.value);
     // Clear textarea
     template.find('.markDownText').value = '';
   },
