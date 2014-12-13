@@ -123,6 +123,7 @@ Template.createPresentation.events({
 
     // Route to Presentation View
     Router.go('/list');
+    setLiveMarkdown('');
     // Reset Default Positions on PUBLISH
     Session.set('colPosition', 0);
     Session.set('rowPosition', 0);
