@@ -24,9 +24,9 @@ var uiBodyEvents = Tracker.autorun(function() {
 
           slide = Meteor.moveRight();
 
-          $('body').addClass('animated bounceInRight');
+          $('.slide').addClass('animated bounceInRight');
           Meteor.setTimeout(function() {
-            $('body').removeClass('animated bounceInRight');
+            $('.slide').removeClass('animated bounceInRight');
           }, 500);
 
           $('.markDownText').val(slide);
@@ -43,9 +43,9 @@ var uiBodyEvents = Tracker.autorun(function() {
 
           slide = Meteor.moveLeft();
 
-          $('body').addClass('animated bounceInLeft');
+          $('.slide').addClass('animated bounceInLeft');
           Meteor.setTimeout(function() {
-            $('body').removeClass('animated bounceInLeft');
+            $('.slide').removeClass('animated bounceInLeft');
           }, 500);
 
           $('.markDownText').val(slide);
@@ -61,9 +61,9 @@ var uiBodyEvents = Tracker.autorun(function() {
 
           slide = Meteor.moveDown();
           
-          $('body').addClass('animated bounceInUp');
+          $('.slide').addClass('animated bounceInUp');
           Meteor.setTimeout(function() {
-            $('body').removeClass('animated bounceInUp');
+            $('.slide').removeClass('animated bounceInUp');
           }, 500);
           
           $('.markDownText').val(slide);
@@ -79,9 +79,9 @@ var uiBodyEvents = Tracker.autorun(function() {
 
           slide = Meteor.moveUp();
           
-          $('body').addClass('animated bounceInDown');
+          $('.slide').addClass('animated bounceInDown');
           Meteor.setTimeout(function() {
-            $('body').removeClass('animated bounceInDown');
+            $('.slide').removeClass('animated bounceInDown');
           }, 500);
 
           $('.markDownText').val(slide);
@@ -184,8 +184,6 @@ Template.createPresentation.events({
 
   'keyup .markDownText': function(evt, template) {
     setLiveMarkdown(evt.target.value);
-    // Updates current slide at current coordinates
-    //saveSlide(Session.get('rowPosition'), Session.get('colPosition'), evt.target.value);
   }
   
 });
