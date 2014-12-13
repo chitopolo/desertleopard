@@ -1,9 +1,32 @@
 <template name="slides">
 
   <div  id="markdown-preview" class="slide col-lg-12">  
-  {{#markdown}}
-  {{markDownSource}}
-  {{/markdown}}    
+    {{#markdown}}
+      {{markDownSource}}
+    {{/markdown}}    
+  </div>
+
+  <button type="button" class="btn pull-right btn-primary btn-lg qrCodeShow" data-toggle="modal" data-target="#myModal">
+    QR Code
+  </button>
+  <button type="button" class="btn pull-right btn-primary btn-lg questions">
+    Questions
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="myModalLabel">Join The Presentation</h4>
+        </div>
+        <div class="modal-body" id="qrcode"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
   </div>
 
 <!--   <button class='qrCodeShow'>SHOW IT</button>
