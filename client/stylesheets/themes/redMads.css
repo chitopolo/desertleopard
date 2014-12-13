@@ -34,6 +34,18 @@ form {
   padding-left: 25%;
 }
 
+.savedPresentations {
+  text-align: center;
+}
+
+.savedPresentations h1 {
+  margin-bottom: 30px;
+}
+
+.panel-body {
+  marign-bottom: 20px !important;
+}
+
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
 .navbar {
